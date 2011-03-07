@@ -6,8 +6,8 @@ module Mongoid
 			model.class_eval do
 			          
         alias_method :old_parentize, :parentize
-        def parentize(object, association_name)
-          old_parentize object, association_name
+        def parentize(object)
+          old_parentize object
           send(:after_parentize) if respond_to?(:after_parentize)
           # run_callbacks(:after_parentize)    
         end  
